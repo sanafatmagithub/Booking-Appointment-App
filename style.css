@@ -11,12 +11,14 @@
   
   ul {
     list-style: none;
+    position: relative;
   }
   
   ul li {
+    /* color: #fff; */
     padding: 5px;
     background: #f4f4f4;
-    margin: 5px 0;
+    margin: 5px ;
   }
   
   header {
@@ -27,7 +29,7 @@
   
   .container {
     margin: auto;
-    width: 500px;
+    width: 600px;
     overflow: auto;
     padding: 3rem 2rem;
   }
@@ -75,3 +77,15 @@
     padding: 5px;
     margin: 5px;
   }
+  .deleteBtn{
+    background-color: black;
+    margin: 5px;
+    color: #fff;
+    padding: 1px 10px;
+   
+    border-radius: 2px;
+     text-align: center;
+    position: absolute;
+    right: 0; 
+
+}
