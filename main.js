@@ -26,15 +26,24 @@ function onSubmit(e) {
     li.appendChild(document.createTextNode(`${nameInput.value}: ${emailInput.value}`));
 
     // Append to ul
-    userList.appendChild(li);
+    users.appendChild(li);
 
     // Clear fields
     // nameInput.value = '';
     // emailInput.value = '';
     }
   
-  localStorage.setItem('userDetailsName', nameInput.value);
-  localStorage.setItem('userEmail', emailInput.value);
- 
+  //  localStorage.setItem('userDetailsName', nameInput.value);
+  //  localStorage.setItem('userEmail', emailInput.value);
+   let name = nameInput.value;
+   let email = emailInput.value;
+
+   let myObj={
+     name: name,
+     email:email
+   };
+   
+   localStorage.setItem(myObj.email, JSON.stringify(myObj));
+  //  showUserOnScreen(myObj)
  
 }
