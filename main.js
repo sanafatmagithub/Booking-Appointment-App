@@ -38,13 +38,30 @@ function onSubmit(e) {
       })
       .catch((err) => {
         const error = document.getElementById('error');
-        error.innerHTML = 'Something went wrong';
+        error.innerHTML = '<h4>Something went wrong</h4>';
         console.log(err);
        
-      });   
+      }); 
        
   }
 }
+document.addEventListener('DOMContentLoaded', () => {
+  // Make a GET request to retrieve user data from CrudCrud API
+  axios
+    .get('https://crudcrud.com/api/ce7e92a5b6374cd3a7d3bded330efba0/appointment')
+    .then((response) => {
+      for(let i=0;i<response.data.length; i++){
+      showUserOnScreen(response.data[i]);
+      }
+    })
+    .catch((err) => {
+      const error = document.getElementById('error');
+      error.innerHTML = 'Error retrieving user data';
+      console.log(err);
+    });
+});
+
+
 
 function showUserOnScreen(myObj) {
   const li = document.createElement('li');
