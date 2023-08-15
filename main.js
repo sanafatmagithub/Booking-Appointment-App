@@ -29,7 +29,7 @@ function onSubmit(e) {
 
     axios
       .post(
-        'https://crudcrud.com/api/ce7e92a5b6374cd3a7d3bded330efba0/appointment',
+        'https://crudcrud.com/api/eadcf94d66bd402081002a8dc8d3130c/appointment',
         myObj
       )
       .then((response) => {
@@ -48,7 +48,7 @@ function onSubmit(e) {
 document.addEventListener('DOMContentLoaded', () => {
   // Make a GET request to retrieve user data from CrudCrud API
   axios
-    .get('https://crudcrud.com/api/ce7e92a5b6374cd3a7d3bded330efba0/appointment')
+    .get('https://crudcrud.com/api/eadcf94d66bd402081002a8dc8d3130c/appointment')
     .then((response) => {
       for(let i=0;i<response.data.length; i++){
       showUserOnScreen(response.data[i]);
@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(err);
     });
 });
+
 
 
 
@@ -77,7 +78,20 @@ function showUserOnScreen(myObj) {
  deletebtn.onclick = ()=> {
   localStorage.removeItem(myObj.email);
   userList.removeChild(li);
- };
+
+    axios
+      .delete(
+        `https://crudcrud.com/api/eadcf94d66bd402081002a8dc8d3130c/appointment/${myObj._id}`
+      )
+      .then((response) => {
+        if (response) {
+          userList.removeChild(li);
+        }
+      })
+      .catch((err) => console.log(err));
+    // localStorage.removeItem(obj.email);
+    };
+ 
 
  // create an edit button
  const editBtn = document.createElement("input");
